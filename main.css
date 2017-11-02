@@ -8,9 +8,8 @@ body {
 
 .pallet-layout-area {
   width: 49%;
-  min-height: 20px;
+  min-height: 200px;
   display: inline-block;
-  padding-bottom: 200px;
   float: left;
 }
 
@@ -29,9 +28,9 @@ body {
 
 .pallet-layout-area ul li {
   margin: 20px auto 0;
+  min-height: 180px;
+  min-width: 180px;
 }
-
-
 
 .layout-cell {
   background-color: #F7F7F7;

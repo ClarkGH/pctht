@@ -1,16 +1,15 @@
 "use strict";
 
 var dragSourceElement = null;
+const rows = document.querySelectorAll( '#pallet li, #layout li div' );
 
 function handleDragStart( e ) {
-
   dragSourceElement = this;
-
   e.dataTransfer.effectAllowed = 'move';
   e.dataTransfer.setData( 'text/html', this.innerHTML );
 }
 
-function handleDragOver( e ) {
+function handleDragOver( e ) { //e.target is source node
   if (e.preventDefault) {
     e.preventDefault(); //allows drop
   }
@@ -28,15 +27,14 @@ function handleDragLeave( e ) {
 }
 
 function handleDrop( e ) { //e is current target el
-  if ( e.stopPrgation ) {
+  if ( e.stopPropagation ) {
     e.stopPropagation;
   }
 
-  if (dragSourceElement != this) {
+  if ( dragSourceElement != this ) {
     dragSourceElement.innerHTML = this.innerHTML;
-    this.innerHTML = e.dataTransfer.getData('text/html');
+    this.innerHTML = e.dataTransfer.getData( 'text/html' );
   }
-
   return false;
 }
 
@@ -46,14 +44,11 @@ function handleDragEnd( e ) { //e is source node
   });
 }
 
-var rows = document.querySelectorAll( '#pallet li, #layout li div' );
-console.log(rows);
-
 [].forEach.call( rows, ( row ) => {
-  row.addEventListener( 'dragstart', handleDragStart, false );
-  row.addEventListener( 'dragenter', handleDragEnter, false );
-  row.addEventListener( 'dragover', handleDragOver, false );
-  row.addEventListener( 'dragleave', handleDragLeave, false );
-  row.addEventListener( 'drop', handleDrop, false );
-  row.addEventListener( 'dragend', handleDragEnd, false );
+  row.addEventListener( 'dragstart', handleDragStart, false ); // on dragStart event
+  row.addEventListener( 'dragenter', handleDragEnter, false ); // on dragEnter event
+  row.addEventListener( 'dragover', handleDragOver, false ); // on dragOver event
+  row.addEventListener( 'dragleave', handleDragLeave, false ); // on dragLeave event
+  row.addEventListener( 'drop', handleDrop, false ); //on handleDrop event
+  row.addEventListener( 'dragend', handleDragEnd, false ); //on dragEnd event
 });
