@@ -1,0 +1,53 @@
+body {
+  background-color: #E4E4E4;
+}
+
+.action-area {
+  height: 30px;
+}
+
+.pallet-layout-area {
+  width: 49%;
+  min-height: 20px;
+  display: inline-block;
+  padding-bottom: 200px;
+  float: left;
+}
+
+.pallet-layout-area img {
+  display: block;
+  width: 180px;
+  height: 180px;  
+  margin: 0 auto;
+}
+
+.pallet-layout-area ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pallet-layout-area ul li {
+  margin: 20px auto 0;
+}
+
+
+
+.layout-cell {
+  background-color: #F7F7F7;
+  display: block;
+  border: 1px solid black;
+  width: 178px;
+  height: 178px;  
+  margin: 0 auto;
+}
+
+.btn-save {
+  float: left;
+  overflow: auto;
+}
+
+.btn-load {
+  float: right;
+  overflow: auto;
+}
